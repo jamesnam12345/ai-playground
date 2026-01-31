@@ -63,7 +63,7 @@ export const ChatSidebar: React.FC<ChatSidebarProps> = ({
             </div>
 
             <div className="p-4 border-t border-gray-800 text-xs text-center text-gray-600">
-                built (strictly) for demo purpose by James Nam
+                Built (strictly) for demo purpose by James N.
             </div>
         </div>
     );

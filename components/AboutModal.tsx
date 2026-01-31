@@ -58,7 +58,7 @@ export const AboutModal: React.FC<AboutModalProps> = ({ isOpen, onClose }) => {
                             <div>
                                 <h3 className="font-semibold text-gray-900 dark:text-white">Tech Stack</h3>
                                 <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
-                                    Built with Next.js 14, React 19, Tailwind CSS, and TypeScript by James Nam.
+                                    Built with Next.js 16, React 19, Tailwind CSS, and TypeScript by James N.
                                 </p>
                             </div>
                         </div>

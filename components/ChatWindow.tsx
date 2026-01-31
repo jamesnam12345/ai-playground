@@ -192,7 +192,7 @@ export const ChatWindow: React.FC<ChatWindowProps> = ({
                         </div>
                     </form>
                     <div className="text-center mt-2 text-xs text-gray-400">
-                        built for demo purpose, by James Nam
+                        AI can make mistakes, including about people, so double-check it. Built for demo purpose, by James N.
                     </div>
                 </div>
             </div>

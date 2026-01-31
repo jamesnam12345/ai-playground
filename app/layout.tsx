@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Streaming AI chat demo by James Nam",
+  title: "Streaming AI chat demo by James N.",
   description: "A privacy-first, in-memory AI chat application powered by Gemini 2.5 Flash.",
 };
 
