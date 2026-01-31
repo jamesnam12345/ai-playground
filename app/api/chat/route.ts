@@ -24,9 +24,9 @@ export async function POST(req: Request) {
     });
 
     const result = streamText({
-      model: google('gemini-flash-latest'),
+      model: google('gemini-2.5-flash'),
       messages: coreMessages,
-      system: 'You are a Senior Staff Engineer. Always explain trade-offs. Be concise.',
+      system: 'You are a helpful, expert AI assistant. Format answers with clear Markdown.',
     });
 
     return result.toUIMessageStreamResponse();

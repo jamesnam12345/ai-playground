@@ -13,7 +13,7 @@ if (fs.existsSync(envPath)) {
     }
 }
 
-const models = ['gemini-1.5-pro-latest', 'gemini-1.5-flash', 'gemini-pro'];
+const models = ['gemini-2.5-flash', 'gemini-3-flash-preview', 'gemini-2.0-flash', 'gemini-flash-latest'];
 
 async function main() {
     for (const modelId of models) {
@@ -28,13 +28,13 @@ async function main() {
             for await (const chunk of result.textStream) {
                 process.stdout.write(chunk);
             }
-            console.log('\nSuccess!');
-            return;
+            console.log('\nSuccess with ' + modelId + '!');
         } catch (error) {
-            console.error(`Failed with ${modelId}:`, error.message);
+            console.error(`\nFailed with ${modelId}:`, error.message);
         }
+        console.log('---');
     }
-    console.log('All models failed.');
+    console.log('Finished testing all models.');
 }
 
 main();
