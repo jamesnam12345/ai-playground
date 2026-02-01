@@ -135,7 +135,7 @@ export const ChatWindow: React.FC<ChatWindowProps> = ({
                                     components={{
                                         pre: (props) => {
                                             const { node, ...rest } = props;
-                                            return <div className="overflow-auto w-full my-2 bg-black/10 dark:bg-black/30 p-2 rounded-lg" {...(rest as any)} />;
+                                            return <pre className="overflow-auto w-full my-2 bg-black/10 dark:bg-black/30 p-2 rounded-lg" {...(rest as any)} />;
                                         },
                                         code: (props) => {
                                             const { node, ...rest } = props;
