@@ -6,6 +6,7 @@ import remarkGfm from 'remark-gfm';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 import { Send, StopCircle, User, Bot, Loader2 } from 'lucide-react';
+import { toast } from 'sonner';
 import { ChatSession } from './ChatLayout';
 
 interface ChatWindowProps {
@@ -29,6 +30,11 @@ export const ChatWindow: React.FC<ChatWindowProps> = ({
         // api: '/api/chat', 
         onFinish: (message) => {
             // Sync happens in effect
+        },
+        onError: (error) => {
+            const errorMessage = error instanceof Error ? error.message : "An error occurred. Please try again.";
+            toast.error(errorMessage);
+            console.error("Chat error:", error);
         },
     });
 
@@ -60,6 +66,12 @@ export const ChatWindow: React.FC<ChatWindowProps> = ({
     }, [messages, session.id, onUpdateMessages, onUpdateTitle, session.messages, session.title]);
 
     const bottomRef = useRef<HTMLDivElement>(null);
+    const textareaRef = useRef<HTMLTextAreaElement>(null);
+
+    // Auto-focus input on mount
+    useEffect(() => {
+        textareaRef.current?.focus();
+    }, []);
 
     // Scroll only when new messages are added or user sends a message
     useEffect(() => {
@@ -157,6 +169,7 @@ export const ChatWindow: React.FC<ChatWindowProps> = ({
                 <div className="max-w-3xl mx-auto relative">
                     <form onSubmit={handleSubmit} className="relative flex items-end gap-2 p-2 bg-gray-100 dark:bg-gray-900 rounded-xl border border-transparent focus-within:border-blue-500 transition-all shadow-inner">
                         <textarea
+                            ref={textareaRef}
                             value={input}
                             onChange={handleInputChange}
                             onKeyDown={(e) => {
